@@ -1,0 +1,21 @@
+<div class="container top-30">
+  <div class="row">
+
+    <div class="col-md-3">
+      <label for="termino">Buscador de artistas</label>
+      <!-- Los () sirven para ejecutar un evento y los [] para escucharlos, es decir [()] sirve para emitir y escuchar desde el component -->
+      <!-- Se añade el evento keyup que ejecutará la función buscarArtista(), no se le pasa el termino como parámetro ya que lo está manejando el componente -->
+      <input [(ngModel)]="termino" (keyup)="buscarArtista()" name="termino" type="text" class="form-control" placeholder="Buscar por artista...">
+      <hr>
+    </div>
+
+    <div class="col-md-9">
+      <ul>
+        <!-- Se muestra una lista que recorre los artistas devueltos por el servicio -->
+        <li *ngFor="let artista of _spotifyService.artistas">
+          {{ artista.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

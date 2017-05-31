@@ -1,0 +1,33 @@
+<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <a class="navbar-brand" href="#">
+    <img src="assets/img/A-64.png" width="30" height="30" alt="">
+  </a>
+
+  <!-- Los routerLink son para la navegación entre rutas, mostrando el contenido sin necesidar de recargar la página -->
+  <!-- Cada ruta o path está relacionada con la que asignaron en el app.routes.ts -->
+
+  <!-- Además, con routerLinkActive podemos indicar que elemento está activo y aplicar, según el caso, estilos diferenciados -->
+  <!-- Cabe resaltar que el routerLink busca si su padre tiene routerLinkActive para poder relacionar las vistas correspondientes de alguna forma -->
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['home']">Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['heroes']">Heroes</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['about']">About</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Buscar héroe" (keyup.enter)="buscarHeroe(buscarTexto.value)" #buscarTexto>
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="button" (click)="buscarHeroe(buscarTexto.value)">Buscar</button>
+    </form>
+  </div>
+</nav>
